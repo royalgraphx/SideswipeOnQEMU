@@ -1,0 +1,84 @@
+## Mount android.img to /tmp/android
+
+sudo mkdir /tmp/android
+sudo mount -o ro,norecovery,rw android.img /tmp/android
+
+
+## Truncate, resize, and mount system.img
+
+sudo truncate -s 4G system.img
+sudo resize2fs system.img
+sudo mkdir /tmp/system
+sudo mount -o ro,norecovery,rw system.img /tmp/system
+
+## Connect Linux Host to Android VM via abd, install APK
+
+adb connect localhost:5555
+abd -s localhost:5555 install 'file.apk'
+abd disconnect 
+
+## Host Linux, take ownership of all files in current directory (useful after running scrips as root. img's arent yours or have a lock)
+
+sudo chmod -R 777 .
+
+## Host Linux, Install binfmt support for ARM64 libndk android emulation
+
+sudo apt install --assume-yes binfmt-support qemu-user-static
+
+## Host Linux, Add USB Controller Support
+
+sudo apt-get install libusb-1.0-0-dev
+
+# Add this udev rule to solve a permission problem:
+# save as /etc/udev/rules.d/xinput.rules
+# Bus 001 Device 008: ID 054c:0ce6 Sony Corp. Wireless Controller
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
+
+## Copy files between Host Linux and mounted img's
+
+sudo cp 'file-from-pc' 'directory-on-img'
+
+## Calculate sha1sum for editing libndk api level
+
+sha1sum '~/Downloads/x86_64-31_r09.zip'
+
+## building android 7.1 image, requires ramdisk to be added to android.img
+
+refer to the prev commands for mounting android.img, then do cp for moving ramdisk to img
+
+## QEMU Prebuilding Required Dependencies
+
+sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build git-email libaio-dev libbluetooth-dev libcapstone-dev libbrlapi-dev libbz2-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev librbd-dev librdmacm-dev libsasl2-dev libsdl2-dev libseccomp-dev libsnappy-dev libssh-dev libvde-dev libvdeplug-dev libvte-2.91-dev libxen-dev liblzo2-dev valgrind xfslibs-dev libnfs-dev libiscsi-dev build-essential libepoxy-dev libdrm-dev libgbm-dev libx11-dev libvirglrenderer-dev libpulse-dev libsdl2-dev libgtk-3-dev
+
+sudo adduser $USER kvm
+Add a udev rule for KVM in /lib/udev/rules.d/99-kvm.rules
+KERNEL=="kvm", GROUP="kvm", MODE="0666"
+
+## Building QEMU 5.1.0
+
+wget https://download.qemu.org/qemu-5.1.0.tar.xz
+tar xvJf qemu-5.1.0.tar.xz
+cd qemu-5.1.0/
+mkdir build
+
+! MAKE SURE YOU CREATE THIS FIX !
+
+--- qemu-5.1.0/hw/input/virtio-input-hid.c    2019-12-12 18:20:47.000000000 +0000
++++ qemu-5.1.0-patched/hw/input/virtio-input-hid.c    2020-04-07 23:46:22.453444127 +0000
+@@ -478,7 +478,7 @@
+ };
+ 
+ static Property virtio_tablet_properties[] = {
+-    DEFINE_PROP_BOOL("wheel-axis", VirtIOInputHID, wheel_axis, true),
++    DEFINE_PROP_BOOL("wheel-axis", VirtIOInputHID, wheel_axis, false),
+     DEFINE_PROP_END_OF_LIST(),
+ };
+
+! END OF FIX !
+
+cd build/
+../configure --enable-sdl --enable-opengl --enable-virglrenderer --enable-system --enable-modules --audio-drv-list=pa --target-list=x86_64-softmmu --enable-kvm --enable-gtk  --enable-libusb
+make
+
+
