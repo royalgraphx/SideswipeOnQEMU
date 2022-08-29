@@ -80,11 +80,14 @@ git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git
 
 Make sure you download the following ISO and store it somewhere, again preferably in Downloads.
 
-* [**BlissOS 11.13 Download**](https://sourceforge.net/projects/blissos-x86/files/Official/bleeding_edge/Generic%20builds%20-%20Pie/11.13/)
+* [**BlissOS 11.13 Download**](https://www.mediafire.com/file/g7qh0l4z6lqj6hk/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso/file)
+
 
 The following sections will be describing how to configure and edit things for repairing the scripts
 they won't work out-of-box (in this release) because they have my username in them instead of your own.
 
+please remember, set the -smp flag and -m in the launch script before ever running the ./preinstall.sh, you must make sure all paths
+are fixed, the threads and ram is fixed, and that the iso file is in your downloads folder or else wherever specified
 
 
 # Configure Controller Passthrough
@@ -219,9 +222,24 @@ Set Resolution, just modify the values.
 
 # First Run
 
+You've made it! it seems as though you've now completed setting everything up, so lets get started!
+
+Launch a terminal window inside of SideswipeOnQEMU directory, and proceed with the following command:
+
+```
+sudo ./preinstall.sh
+```
+
+This might take a while! it's going to extract the qemu src code and then build it, which takes a bit.
+Once QEMU is built, the ISO is going to be expanded to retrieve files needed for the android.img that will
+appear inside of sideswipe-vm on your desktop, thats your virtual hard disk that QEMU uses. Once it's complete
+it'll autostart the android VM ! 
+
+
 ```
 You must press escape when promted to enter recovery.
 ```
+
 
 Currently we have a custom build of QEMU that is using VirGL as a display adapter, but our current build doesn't come with drivers
 right away, and without doing this next step, it wouldn't boot at all. So please, make sure to remember to enter GearLock recovery
@@ -234,6 +252,10 @@ sideswipe-vm and ./launch.sh inside of it to start the VM whenever you want.
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock3.png?raw=true">
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock4.png?raw=true">
 </div>
+
+Once that's done installing, press escape until you can see the reboot option. Use Arrow Key Right and Enter to select it.
+
+You'll then reboot into Android!
 
 -----------------------------------------------------------------------------
 
