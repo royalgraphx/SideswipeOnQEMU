@@ -15,7 +15,7 @@ sudo cp $git_dir/99-kvm.rules "/lib/udev/rules.d/"
 sudo cp $git_dir/xinput.rules "/etc/udev/rules.d/"
 
 # move over qemu src to home for easy access
-cp -a $git_dir/qemu-sideswipe/ "/home/royalgraphx/"
+cp -a $git_dir/qemu-sideswipe/ "$HOME"
 
 cd $git_dir
 chmod +x postinstall.sh
