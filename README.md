@@ -3,8 +3,21 @@
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SideswipeOnQEMU.png?raw=true">
 </div>
 
-Before we get started...which Linux is the right Linux?
-===============
+# Table of Contents!
+
+- Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
+- Step 1. [Getting started](#getting-started)
+- Step 2. [Configure Controller Passthrough](#configure-controller-passthrough)
+- Step 3. [Configure Pre Install Script](#configure-pre-install-script)
+- Step 4. [Configure Post Install Script](#configure-post-install-script)
+- Step 5. [Configure Android QEMU Install Script](#configure-android-qemu-install-script)
+- Step 6. [First Run](#first-run)
+- Step 7. [ADB To Install APKs](#adb-to-install-apks)
+- Step 8. [PROFIT](#profit)
+
+
+# Before we get started which Linux is the right Linux?
+
 If you've never used Linux before you might have already given up on this project and no longer want to attempt it...
 but fear not! Linux is very easy to learn, understand, and use! Not only will you unlock the full power of your system
 by running a completely different Operating System, with an amazing Kernel such that is the Linux Kernel, you will
@@ -45,8 +58,6 @@ Example in Linux Mint:
 
 
 # Getting started
-===============
-
 
 Welcome To Linux!
 
@@ -76,10 +87,7 @@ they won't work out-of-box (in this release) because they have my username in th
 
 
 
-----------------
-
 # Configure Controller Passthrough
-=================
 
 Step 1.
 The preinstall.sh contains code to move two files, but we need to modify xinput.rules to passthrough our controller correctly
@@ -136,30 +144,38 @@ Alternative Method using hardcoded values of the vendorid and productid can be u
 
 
 
-# Configure preinstall.sh
-=================
+# Configure Pre Install Script
+
+```
+preinstall.sh
+```
+
 There is one single variable, please replace the username to yours, or specify the specific path to the cloned repo folder.
 ```bash
 git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
 ```
------------------------------------------------------------------------------
 
 
 
+# Configure Post Install Script
 
-# Configure postinstall.sh
-=================
+```
+postinstall.sh
+```
+
 There are two variables to change, please replace the username to yours, or specify the specific path to the mentioned folder.
 ```bash
 git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
 qemu_dir=/home/royalgraphx/qemu-sideswipe
 ```
------------------------------------------------------------------------------
 
 
+# Configure Android QEMU Install Script
 
-# Configure install_scripts/android_install_qemu_sideswipe.sh
-=================
+```
+SideswipeOnQEMU/install_scripts/android_install_qemu_sideswipe.sh
+```
+
 There are several variables to change, please verify each of these carefully, you do not want this section to fail.
 ```sh
 isoname=/home/royalgraphx/Downloads/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
@@ -168,17 +184,19 @@ launch_file=/home/royalgraphx/Desktop/SideswipeOnQEMU/launch_scripts
 android_dir=/home/royalgraphx/Desktop/sideswipe-vm        <--- ONLY CHANGE USERNAME. UNLESS YOU FIX EVERYTHING ELSE TO REFERENCE A DIFFRENT ANDROID DIR
 ```
 
-DO NOT MODIFY THESE
+do not modify these
 ```red
 iso_mount=/tmp/iso
 system_mount=/tmp/system
 ```
------------------------------------------------------------------------------
 
 
+# Configure Launch Script
 
-# Configure launch_scripts/launch.sh
-=================
+```
+SideswipeOnQEMU/launch_scripts/launch.sh
+```
+
 There are several variables in the launch script, this is how you customize the VM. A breakdown of what can be configured is below. 
 
 These changes are required to get the script to work.
@@ -199,8 +217,12 @@ Set Resolution, just modify the values.
 ```
 -----------------------------------------------------------------------------
 
-# First Run, Must Configure Mesa 21 GXP
-=================
+# First Run
+
+```
+You must press escape when promted to enter recovery.
+```
+
 Currently we have a custom build of QEMU that is using VirGL as a display adapter, but our current build doesn't come with drivers
 right away, and without doing this next step, it wouldn't boot at all. So please, make sure to remember to enter GearLock recovery
 and install the Mesa package located in /system/ then make sure to do a full reboot. You can close the QEMU window, terminal to
@@ -215,8 +237,8 @@ sideswipe-vm and ./launch.sh inside of it to start the VM whenever you want.
 
 -----------------------------------------------------------------------------
 
-# Recommended way to install APK's
-=================
+# ADB To Install APKs
+
 The modified ramdisk allows us to start adb on the VM once we connect to VirtWifi.
 Open Terminal from the installed apps in android and do the following:
 <div align="center">
@@ -235,8 +257,8 @@ adb -s localhost:5555 install <apk file>
 ```
 -----------------------------------------------------------------------------
 
-# PROFIT !
-=================
+# PROFIT
+
 <div align="center">
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/profit.png?raw=true">
 </div>
