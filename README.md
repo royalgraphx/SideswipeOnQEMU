@@ -80,7 +80,7 @@ git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git
 
 Make sure you download the following ISO and store it somewhere, again preferably in Downloads.
 
-* [**BlissOS 11.13 Download**](https://sourceforge.net/projects/blissos-x86/files/Official/bleeding_edge/Generic%20builds%20-%20Pie/11.13/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso/download)
+* [**BlissOS 11.13 Download**](https://sourceforge.net/projects/blissos-x86/files/Official/bleeding_edge/Generic%20builds%20-%20Pie/11.13/)
 
 The following sections will be describing how to configure and edit things for repairing the scripts
 they won't work out-of-box (in this release) because they have my username in them instead of your own.
