@@ -153,15 +153,10 @@ Alternative Method using hardcoded values of the vendorid and productid can be u
 preinstall.sh
 ```
 
-There are two variables to update, please replace the username to yours, or specify the specific path to the cloned repo folder.
+There is a single variable to fix, please replace the username to yours, or specify the specific path to the cloned repo folder.
 ```bash
 git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
-
-# move over qemu src to home for easy access
-cp -a $git_dir/qemu-sideswipe/ "/home/royalgraphx/"
 ```
-
-
 
 # Configure Post Install Script
 
