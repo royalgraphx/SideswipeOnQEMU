@@ -14,6 +14,9 @@
 - Step 6. [First Run](#first-run)
 - Step 7. [ADB To Install APKs](#adb-to-install-apks)
 - Step 8. [PROFIT](#profit)
+- [QEMU Shortcuts](#qemu-shortcuts)
+- [Starting the VM](#starting-the-vm)
+- [Known Issues](#known-issues)
 
 
 # Before we get started which Linux is the right Linux?
@@ -142,9 +145,6 @@ Alternative Method using hardcoded values of the vendorid and productid can be u
 ```bash
 -usb -device usb-tablet,bus=usb-bus.0 -device usb-host,vendorid=0x054c,productid=0x0ce6
 ```
------------------------------------------------------------------------------
-
-
 
 
 # Configure Pre Install Script
@@ -221,7 +221,6 @@ Set Resolution, just modify the values.
 -device virtio-vga,xres=1920,yres=1080
 "root=/dev/ram0 quiet GRALLOC=gbm video=1920x1080 SRC=/"
 ```
------------------------------------------------------------------------------
 
 # First Run
 
@@ -240,14 +239,15 @@ it'll autostart the android VM !
 
 
 ```
-You must press escape when promted to enter recovery.
+You must press escape when promted to enter recovery. when promted with this screen, choose option 2
 ```
-
+<div align="center">
+<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock0.png?raw=true">
+</div>
 
 Currently we have a custom build of QEMU that is using VirGL as a display adapter, but our current build doesn't come with drivers
-right away, and without doing this next step, it wouldn't boot at all. So please, make sure to remember to enter GearLock recovery
-and install the Mesa package located in /system/ then make sure to do a full reboot. You can close the QEMU window, terminal to
-sideswipe-vm and ./launch.sh inside of it to start the VM whenever you want.
+right away, and without doing this next step, it wouldn't boot at all. So please install the Mesa package located in /system/ 
+then make sure to do a reboot.
 
 <div align="center">
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock1.png?raw=true">
@@ -260,7 +260,6 @@ Once that's done installing, press escape until you can see the reboot option. U
 
 You'll then reboot into Android!
 
------------------------------------------------------------------------------
 
 # ADB To Install APKs
 
@@ -280,14 +279,54 @@ If you experience the following error about multiple devices, try this:
 ```bash
 adb -s localhost:5555 install <apk file>
 ```
------------------------------------------------------------------------------
+
 
 # PROFIT
 
 <div align="center">
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/profit.png?raw=true">
 </div>
------------------------------------------------------------------------------
+
+# QEMU Shortcuts
+
+Please note that you must be in fullscreen mode for Touch Input to work correctly!
+
+```
+Ctrl + Alt + G = Lock Mouse In/Out VM
+Ctrl + Alt + F = Fullscreen Toggle
+```
+
+# Starting the VM
+
+Okay so it launched and worked after I did the install, but how do I start the emulator once I close it?
+On your desktop is a sideswipe-vm folder, it contains its own launch.sh you can run by double clicking it!
+if that doesn't work, either open a terminal and cd to the folder, or right click and click open in terminal.
+
+simply run:
+```
+./launch.sh
+```
+
+# Known Issues
+
+Audio
+```
+When starting the VM, sometimes the audio will be 'slowed down'.
+Reinstalls using ./android_install_sideswipe.sh have shown to fix it.
+Sometimes even just restarting helps.
+```
+
+Video
+```
+None, Stutters are due to Shader Cache. 
+Once something is rendered, it should no longer lag to show said render.
+i.e The first time a goal explosion is shown, it will stutter to cache.
+```
+
+Touch
+```
+Must be in fullscreen or else inputs aren't correctly passed through
+```
 
 # post notes and future plans
 
@@ -303,3 +342,10 @@ what I just mentioned above. thank you for attempting this if you did, and im he
 you can ping me in the following server.
 
 https://discord.gg/4wTSynAZgM
+
+
+as for future plans, i hope to automate this further, to the point where it is one single
+script you can run, but I've already spent so much time on this that, this is the best I
+can do for a solid release, I've had multiple people successfully recreate this, so I feel
+confident you can fix it if you try. If anything fails in the script, simply delete sideswipe-vm
+from desktop, and you can rerun from ./postinstall.sh to retry.
