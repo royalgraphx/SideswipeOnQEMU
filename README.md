@@ -1,6 +1,7 @@
 # SideswipeOnQEMU
-Assortment of information, scripts, and data for running RL Sideswipe on QEMU 5.1.0 running Android
-
+<div align="center">
+<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SideswipeOnQEMU.png?raw=true">
+</div>
 
 Getting started
 ===============
