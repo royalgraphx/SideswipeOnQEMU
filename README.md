@@ -224,7 +224,7 @@ You've made it! it seems as though you've now completed setting everything up, s
 Launch a terminal window inside of SideswipeOnQEMU directory, and proceed with the following command:
 
 ```
-sudo ./preinstall.sh
+./preinstall.sh
 ```
 
 This might take a while! it's going to extract the qemu src code and then build it, which takes a bit.
