@@ -191,6 +191,12 @@ iso_mount=/tmp/iso
 system_mount=/tmp/system
 ```
 
+You can also change the size of the Hard Disk for the Android VM from this script too! Edit the following lines; 12GB is minimum.
+
+```
+# create disk image and move over everything
+qemu-img create -f raw android.img 30G
+```
 
 # Configure Launch Script
 
