@@ -2,8 +2,8 @@
 
 # set variables
 
-git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
-qemu_dir=/home/royalgraphx/qemu-sideswipe
+git_dir=$HOME/Desktop/SideswipeOnQEMU
+qemu_dir=$HOME/qemu-sideswipe
 
 # build qemu
 echo welcome to part 2 of the script!
