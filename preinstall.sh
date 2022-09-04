@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set variables
-git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
+git_dir=$HOME/Desktop/SideswipeOnQEMU
 
 # install required dependencies
 sudo apt-get update
