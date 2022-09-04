@@ -8,12 +8,11 @@
 - Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
 - Step 1. [Getting started](#getting-started)
 - Step 2. [Configure Controller Passthrough](#configure-controller-passthrough)
-- Step 3. [Configure Pre Install Script](#configure-pre-install-script)
-- Step 4. [Configure Post Install Script](#configure-post-install-script)
-- Step 5. [Configure Android QEMU Install Script](#configure-android-qemu-install-script)
-- Step 6. [First Run](#first-run)
-- Step 7. [ADB To Install APKs](#adb-to-install-apks)
-- Step 8. [PROFIT](#profit)
+- (Optional) Step 3. [Configure Android QEMU Install Script](#configure-android-qemu-install-script)
+- Step 4. [Configure Launch Script](#configure-launch-script)
+- Step 5. [First Run](#first-run)
+- Step 6. [ADB To Install APKs](#adb-to-install-apks)
+- Step 7. [PROFIT](#profit)
 - [QEMU Shortcuts](#qemu-shortcuts)
 - [Starting the VM](#starting-the-vm)
 - [Known Issues](#known-issues)
@@ -81,22 +80,19 @@ To initialize your local repository using git, use the following coommand on you
 git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git
 ```
 
-Make sure you download the following ISO and store it somewhere, again preferably in Downloads.
+Make sure you download the following ISO and store it in as its required to install Android
+
+```
+SideswipeOnQEMU/iso
+```
 
 * [**BlissOS 11.13 Download**](https://www.mediafire.com/file/g7qh0l4z6lqj6hk/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso/file)
 
 
-The following sections will be describing how to configure and edit things for repairing the scripts
-they won't work out-of-box (in this release) because they have my username in them instead of your own.
-
-please remember, set the -smp flag and -m in the launch script before ever running the ./preinstall.sh, you must make sure all paths
-are fixed, the threads and ram is fixed, and that the iso file is in your downloads folder or else wherever specified
-
-
 # Configure Controller Passthrough
 
-Step 1.
-The preinstall.sh contains code to move two files, but we need to modify xinput.rules to passthrough our controller correctly
+- Step 1.
+We need to modify ``SideswipeOnQEMU/xinput.rules`` to passthrough our controller correctly
 
 ```sh
   # Bus 001 Device 004: ID 054c:0ce6 Sony Corp. Wireless Controller
@@ -105,8 +101,8 @@ SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE
 ```
 
 It's already preconfigured to work right away with PS5 DualSense Controllers. To set this to yours, you'll run a command in
-your terminal and use the ID whatever it says here:whatever it says here to fill in the vendor and product ID.
-Find your controller and take note of the ID.
+your terminal and use the ID to fill in the vendor and product ID.
+Find your controller and take note of the ID using lsusb in a terminal. Here's an output example.
 
 ```bash
 # lsusb
@@ -116,60 +112,27 @@ Bus 001 Device 004: ID 054c:0ce6 Sony Corp. Wireless Controller  <--- This is wh
 Bus 001 Device 002: ID 05ac:1392 Apple, Inc. Apple Watch charger
 ```
 
-Here's an example, my controller says ID 054c:0ce6 in libusb, so what I have to
+My controller says ID 054c:0ce6 in lsusb, so what I have to
 do is, open the xinput.rules in text editor and edit the following parts to fit my controller
-in both of the lines. Don't edit the mode values, everything else is right.
+in both of the lines for both subsystems. Don't edit the mode values, everything else is right.
 
 
 ```sh
-ATTRS{idVendor}=="054c"
-ATTRS{idProduct}=="0ce6"
+ATTRS{idVendor}=="054c" ATTRS{idProduct}=="0ce6"
+ATTRS{idVendor}=="054c" ATTRS{idProduct}=="0ce6"
 ```
 
 
-Step 2.
-Change the launch.sh in /launch_scripts to use the controller
-You have different ways of using the controller, heres what to replace, and an alternate line if it doesn't work
-right away, often times the reboot is needed after running the first setup to get everything working perfectly.
+- Step 2.
+Change the launch.sh in ``SideswipeOnQEMU/launch_scripts/launch.sh`` to use the controller
 
+**Please note, after the first run and boot of Android, you must REBOOT, this loads the mentioned udev rule and allows QEMU
+to passthrough the below configured controller.**
 
-In this method, you are using the reported bus and port from lsusb to pass it through in this line:
-```bash
--usb -device usb-ehci,id=ehci -device usb-host,bus=ehci.0,hostbus=1,hostport=4
-```
-
-(Only try this if the above didn't work, and a restart or reboot didn't fix it)
-
-Alternative Method using hardcoded values of the vendorid and productid can be used like this:
 
 ```bash
 -usb -device usb-tablet,bus=usb-bus.0 -device usb-host,vendorid=0x054c,productid=0x0ce6
 ```
-
-
-# Configure Pre Install Script
-
-```
-preinstall.sh
-```
-
-There is a single variable to fix, please replace the username to yours, or specify the specific path to the cloned repo folder.
-```bash
-git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
-```
-
-# Configure Post Install Script
-
-```
-postinstall.sh
-```
-
-There are two variables to change, please replace the username to yours, or specify the specific path to the mentioned folder.
-```bash
-git_dir=/home/royalgraphx/Desktop/SideswipeOnQEMU
-qemu_dir=/home/royalgraphx/qemu-sideswipe
-```
-
 
 # Configure Android QEMU Install Script
 
@@ -177,25 +140,16 @@ qemu_dir=/home/royalgraphx/qemu-sideswipe
 SideswipeOnQEMU/install_scripts/android_install_qemu_sideswipe.sh
 ```
 
-There are several variables to change, please verify each of these carefully, you do not want this section to fail.
-```sh
-isoname=/home/royalgraphx/Downloads/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
-required_files=/home/royalgraphx/Desktop/SideswipeOnQEMU/required_files
-launch_file=/home/royalgraphx/Desktop/SideswipeOnQEMU/launch_scripts
-android_dir=/home/royalgraphx/Desktop/sideswipe-vm        <--- ONLY CHANGE USERNAME. UNLESS YOU FIX EVERYTHING ELSE TO REFERENCE A DIFFRENT ANDROID DIR
-```
-
-do not modify these
-```red
-iso_mount=/tmp/iso
-system_mount=/tmp/system
-```
-
-You can also change the size of the Hard Disk for the Android VM from this script too! Edit the following lines; 12GB is minimum.
+You can change the size of the Hard Disk for the Android VM ! Edit the following lines; 14GB is minimum.
 
 ```
 # create disk image and move over everything
 qemu-img create -f raw android.img 30G
+```
+
+for more advanced users, if for some reason you need a bigger system partition, thats changeable here
+```
+sudo truncate -s 5G system.img
 ```
 
 # Configure Launch Script
@@ -206,18 +160,15 @@ SideswipeOnQEMU/launch_scripts/launch.sh
 
 There are several variables in the launch script, this is how you customize the VM. A breakdown of what can be configured is below. 
 
-These changes are required to get the script to work.
+Some changes are required to get the script to work, such as the amount of threads, and RAM to dedicate. It will fail if you don't have it correct.
+
 ```bash
-cd /home/royalgraphx/qemu-sideswipe/build/x86_64-softmmu    <--- you should only have to change the username.
--smp 12       <--- How many threads you can assign, 8 cores 16 threads so I dedicated 12.
--drive file=/home/royalgraphx/Desktop/sideswipe-vm/android.img      <--- you should only have to change the username.
+-smp 12       <--- How many threads you can assign, I have 8 cores 16 threads so I dedicated 12.
 -m 25G        <--- This is the amount of RAM the VM will passthrough.
 -device AC97  <--- this specifies audio, if not working, try -soundhw all
--kernel /home/royalgraphx/Desktop/sideswipe-vm/kernel      <--- should only change username.
--initrd /home/royalgraphx/Desktop/sideswipe-vm/initrd.img  <--- should only change username.
 ```
 
-Set Resolution, just modify the values.
+- To Set Resolution, just modify the following values.
 ```bash
 -device virtio-vga,xres=1920,yres=1080
 "root=/dev/ram0 quiet GRALLOC=gbm video=1920x1080 SRC=/"
@@ -261,6 +212,11 @@ Once that's done installing, press escape until you can see the reboot option. U
 
 You'll then reboot into Android!
 
+# Setting up Wifi
+
+By default, we use VirtWifi to passthrough connectivity to the VM, make sure to go to settings and connect to it!
+
+*Add Images here.*
 
 # ADB To Install APKs
 
@@ -270,7 +226,7 @@ Open Terminal from the installed apps in android and do the following:
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/adb.png?raw=true">
 </div>
 
-You can now open a fresh terminal window on your linux host machine and do the following commands in the dir where the apk is at:
+You can now open a fresh terminal window on your ***linux host machine*** and do the following commands in the dir where the apk is at:
 ```bash
 adb connect localhost:5555
 adb install <apk file>

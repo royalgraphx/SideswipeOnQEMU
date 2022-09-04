@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # set up variables
-isoname=/home/royalgraphx/Downloads/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
-required_files=/home/royalgraphx/Desktop/SideswipeOnQEMU/required_files
-launch_file=/home/royalgraphx/Desktop/SideswipeOnQEMU/launch_scripts
-android_dir=/home/royalgraphx/Desktop/sideswipe-vm
+isoname=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/iso/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
+required_files=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/required_files
+launch_file=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/launch_scripts
+android_dir=/home/$SUDO_USER/Desktop/sideswipe-vm
 iso_mount=/tmp/iso
 system_mount=/tmp/system
 
@@ -38,12 +38,12 @@ sudo mount -o ro,norecovery,rw system.img /tmp/system
 cp $required_files/Mesa21.3__Android_9.0_..gxp "$system_mount"
 cp $required_files/QEMU_Virtio_Tablet.idc "$system_mount/usr/idc/"
 cp $required_files/aida64.apk "$system_mount"
-cp $required_files/AlsaMixer.apk "$system_mount"
 cd ..
 
 # clean up & add launch file
 
 cd $android_dir
+sudo cp $launch_file/firstlaunch.sh "$android_dir"
 sudo cp $launch_file/launch.sh "$android_dir"
 sudo cp $launch_file/chain.sh "$android_dir"
 chmod +x launch.sh
