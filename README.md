@@ -216,7 +216,9 @@ You'll then reboot into Android!
 
 By default, we use VirtWifi to passthrough connectivity to the VM, make sure to go to settings and connect to it!
 
-*Add Images here.*
+<div align="center">
+<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/VirtWifi.png?raw=true">
+</div>
 
 # ADB To Install APKs
 
