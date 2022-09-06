@@ -16,6 +16,7 @@
 - [QEMU Shortcuts](#qemu-shortcuts)
 - [Starting the VM](#starting-the-vm)
 - [Known Issues](#known-issues)
+- [Extra Goodies](#extra-goodies)
 
 
 # Before we get started which Linux is the right Linux?
@@ -285,6 +286,18 @@ i.e The first time a goal explosion is shown, it will stutter to cache.
 Touch
 ```
 Must be in fullscreen or else inputs aren't correctly passed through
+```
+
+# Extra Goodies
+
+As some of you may already know, Windows changes audio output when new devices gets plugged in, well so does Linux.
+Thing is, we're starting and stopping the VM constantly, and basically connecting/disconnecting the controller,
+This causes the audio to keep switching to the controller and it's really annoying. Here's the fix! Run these two lines
+in a new fresh terminal.
+
+```
+sudo sed -ri 's/^(load-module module-switch-on-.*$)/# \1/' /etc/pulse/default.pa
+pulseaudio -k
 ```
 
 # post notes and future plans
