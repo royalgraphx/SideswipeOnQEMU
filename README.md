@@ -164,8 +164,10 @@ There are several variables in the launch script, this is how you customize the 
 Some changes are required to get the script to work, such as the amount of threads, and RAM to dedicate. It will fail if you don't have it correct.
 
 ```bash
--smp 12       <--- How many threads you can assign, I have 8 cores 16 threads so I dedicated 12.
--m 25G        <--- This is the amount of RAM the VM will passthrough.
+-smp 4       <--- How many threads you can assign, I have 8 cores 16 threads so I dedicated 12.
+-m 4G        <--- This is the amount of RAM the VM will passthrough.
+
+
 -device AC97  <--- this specifies audio, if not working, try -soundhw all
 ```
 
@@ -316,8 +318,8 @@ you can ping me in the following server.
 https://discord.gg/4wTSynAZgM
 
 
-as for future plans, i hope to automate this further, to the point where it is one single
-script you can run, but I've already spent so much time on this that, this is the best I
-can do for a solid release, I've had multiple people successfully recreate this, so I feel
-confident you can fix it if you try. If anything fails in the script, simply delete sideswipe-vm
-from desktop, and you can rerun from ./postinstall.sh to retry.
+Future Plans:
+- Windows Support, 64-Bit, WHPX only.
+- All Controllers supported by default, removes need for configuring passthrough
+- Custom Android built from Source, Move away from BlissOS 11.13
+- Support Multicore passthrough, better performance.
