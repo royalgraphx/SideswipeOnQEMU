@@ -1,6 +1,10 @@
 # SideswipeOnQEMU
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ohov97OBIZY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<h4>The image below links to the video tutorial! It goes over what the differences are, and how to configure everything.</h4>
+<a href="https://www.youtube.com/watch?v=ohov97OBIZY">
+<img alt="Youtube Thumbnail" src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SSonQEMU.png?raw=true">
+</a>
+                               
 # Table of Contents!
 
 - Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
