@@ -247,8 +247,14 @@ adb -s localhost:5555 install <apk file>
 
 # PROFIT
 
+Season 4
 <div align="center">
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/profit.png?raw=true">
+</div>
+
+Season 5
+<div align="center">
+<img src="https://cdn.discordapp.com/attachments/849156584239923211/1020245681488789575/unknown.png">
 </div>
 
 # QEMU Shortcuts
