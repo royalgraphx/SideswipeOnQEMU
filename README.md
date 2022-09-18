@@ -323,8 +323,7 @@ what I just mentioned above. thank you for attempting this if you did, and im he
 
 you can ping me in the following server.
 
-https://discord.gg/4wTSynAZgM
-
+https://discord.gg/B4CRB2bnsg
 
 Future Plans:
 - Windows Support, 64-Bit, WHPX only.
