@@ -3,6 +3,11 @@
 <img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SideswipeOnQEMU.png?raw=true">
 </div>
 
+                         Current Branch: home_fix_ax86script
+                         Last Commit: 09/25/22 - 5:11:32 AM
+                         Branch Description: This branch added the $HOME fix, it removed the step of having to fix hardcoded paths
+                         Branch Status: Merged & Deprecated
+
 # Table of Contents!
 
 - Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
