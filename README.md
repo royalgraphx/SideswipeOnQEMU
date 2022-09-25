@@ -1,7 +1,10 @@
 # SideswipeOnQEMU
 
-Current Branch: wx86_64
-                           
+                         Current Branch: wx86_64
+                         Last Commit: 09/25/22 - 5:11:32 AM
+                         Branch Description: wx86_64 is the codename for SideswipeOnQEMU on Windows 10/11 64-Bit
+                         Branch Status: work is currently suspended until further notice 
+
 # Table of Contents!
 
 - 
