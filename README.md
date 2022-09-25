@@ -1,10 +1,13 @@
 # SideswipeOnQEMU
 
-<h4>The image below links to the video tutorial! It goes over what the differences are, and how to configure everything.</h4>
+<h4>Click the image below to be taken to YouTube for an explanation/tutorial!</h4>
 <a href="https://www.youtube.com/watch?v=ohov97OBIZY">
 <img alt="Youtube Thumbnail" src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SSonQEMU.png?raw=true">
 </a>
-                               
+                         
+                         Current Branch: main
+                         Last Commit: 09/25/22 - 5:11:32 AM
+                         
 # Table of Contents!
 
 - Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
