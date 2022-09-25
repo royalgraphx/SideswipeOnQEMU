@@ -1,3 +1,56 @@
-# Bus 001 Device 008: ID 054c:0ce6 Sony Corp. Wireless Controller
+# Bus 001 Device 008: ID 054c:0ce6 Sony Corp. Wireless Controller (PS5)
+
 SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
 SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
+
+# Bus 002 Device 009: ID 054c:09cc Sony Corp. DualShock 4 (PS4)
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+
+# ID 054c:05c4 Sony Computer Entertainment Wireless Controller DualShock 4 [CUH-ZCT1x]
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+
+# ID 054c:0268 Sony PlayStation DualShock 3
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0268", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0268", MODE="0666"
+
+# ID 054c:0ba0 Sony PlayStation DualShock 4 Wireless Adapter
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ba0", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ba0", MODE="0666"
+
+# ID 045e:0202 Microsoft Corporation Xbox Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0202", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0202", MODE="0666"
+
+# ID 045e:028e Microsoft Corporation Xbox 360 Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e", MODE="0666"
+
+# ID 045e:02d1 Microsoft Corporation Xbox One Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02d1", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02d1", MODE="0666"
+
+# ID 045e:02dd Microsoft Corporation Xbox One Controller (Firmware 2015)
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02dd", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02dd", MODE="0666"
+
+# ID 045e:0719 Microsoft Xbox 360 Wireless Receiver for Windows
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0719", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0719", MODE="0666"
+
+# ID 045e:02ea Microsoft Xbox One S Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02ea", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="02ea", MODE="0666"
+
+# EOF
