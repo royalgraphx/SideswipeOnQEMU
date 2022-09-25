@@ -5,8 +5,10 @@
 <img alt="Youtube Thumbnail" src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SSonQEMU.png?raw=true">
 </a>
                          
-                         Current Branch: main
-                         Last Commit: 09/25/22 - 5:11:32 AM
+                         Current Branch: psydroid
+                         Last Commit: 09/25/22 - 5:22:45 AM
+                         Branch Description: Psydroid is the name of the Android ROM SideswipeOnQEMU utilizes.
+                         Branch Status: In Active Development
                          
 # Table of Contents!
 
@@ -92,7 +94,7 @@ Make sure you download the following ISO and store it in as its required to inst
 SideswipeOnQEMU/iso
 ```
 
-* [**BlissOS 11.13 Download**](https://www.mediafire.com/file/g7qh0l4z6lqj6hk/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso/file)
+* [**Psydroid .iso Download**](https://via.placeholder.com/1280x720?text=Placeholder)
 
 
 # Configure Controller Passthrough
@@ -197,67 +199,24 @@ Once QEMU is built, the ISO is going to be expanded to retrieve files needed for
 appear inside of sideswipe-vm on your desktop, thats your virtual hard disk that QEMU uses. Once it's complete
 it'll autostart the android VM ! 
 
-
-```
-You must press escape when promted to enter recovery. when promted with this screen, choose option 2
-```
-<div align="center">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock0.png?raw=true">
-</div>
-
-Currently we have a custom build of QEMU that is using VirGL as a display adapter, but our current build doesn't come with drivers
-right away, and without doing this next step, it wouldn't boot at all. So please install the Mesa package located in /system/ 
-then make sure to do a reboot.
-
-<div align="center">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock1.png?raw=true">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock2.png?raw=true">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock3.png?raw=true">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/GearLock4.png?raw=true">
-</div>
-
-Once that's done installing, press escape until you can see the reboot option. Use Arrow Key Right and Enter to select it.
-
-You'll then reboot into Android!
-
 # Setting up Wifi
 
 By default, we use VirtWifi to passthrough connectivity to the VM, make sure to go to settings and connect to it!
 
 <div align="center">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/VirtWifi.png?raw=true">
+<img src="https://via.placeholder.com/1280x720?text=Placeholder">
 </div>
-
-# ADB To Install APKs
-
-The modified ramdisk allows us to start adb on the VM once we connect to VirtWifi.
-Open Terminal from the installed apps in android and do the following:
-<div align="center">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/adb.png?raw=true">
-</div>
-
-You can now open a fresh terminal window on your ***linux host machine*** and do the following commands in the dir where the apk is at:
-```bash
-adb connect localhost:5555
-adb install <apk file>
-```
-
-If you experience the following error about multiple devices, try this:
-```bash
-adb -s localhost:5555 install <apk file>
-```
-
 
 # PROFIT
 
 Season 4
 <div align="center">
-<img src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/profit.png?raw=true">
+<img src="https://via.placeholder.com/1280x720?text=Placeholder">
 </div>
 
 Season 5
 <div align="center">
-<img src="https://cdn.discordapp.com/attachments/849156584239923211/1020245681488789575/unknown.png">
+<img src="https://via.placeholder.com/1280x720?text=Placeholder">
 </div>
 
 # QEMU Shortcuts
@@ -284,16 +243,10 @@ simply run:
 
 Audio
 ```
-When starting the VM, sometimes the audio will be 'slowed down'.
-Reinstalls using ./android_install_sideswipe.sh have shown to fix it.
-Sometimes even just restarting helps.
 ```
 
 Video
 ```
-None, Stutters are due to Shader Cache. 
-Once something is rendered, it should no longer lag to show said render.
-i.e The first time a goal explosion is shown, it will stutter to cache.
 ```
 
 Touch
@@ -315,21 +268,9 @@ pulseaudio -k
 
 # post notes and future plans
 
-the changes made to qemu, system, and any other changes are specific to this repo.
-i wish no redistribution takes place. the scripts work because everything is condensed and made
-to work, the many workarounds and things I had to try for over a month to get this to work, was
-incredibly laborious and i'd like everything to stay here. no forks, no implementation outside 
-of this enviroment, its specifically made to improve the lifes of those seeking to play Sideswipe.
-I have literally not tested any other games, if they work, great, but I broke things in order for
-them to work in sideswipe, and who knows how that can affect other games or whatever you try outside of
-what I just mentioned above. thank you for attempting this if you did, and im here to help.
-
 you can ping me in the following server.
 
 https://discord.gg/B4CRB2bnsg
 
 Future Plans:
-- Windows Support, 64-Bit, WHPX only.
 - All Controllers supported by default, removes need for configuring passthrough
-- Custom Android built from Source, Move away from BlissOS 11.13
-- Support Multicore passthrough, better performance.
