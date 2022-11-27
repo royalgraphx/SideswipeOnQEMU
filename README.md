@@ -6,7 +6,7 @@
 </a>
                          
                          Current Branch: arch
-                         Last Commit: 09/25/22 - 5:11:32 AM
+                         Last Commit: 11/27/22 - 12:13:32 AM
                          Branch Description: Allows for use on Steam Deck and Arch based Distros.
 # Table of Contents!
 
