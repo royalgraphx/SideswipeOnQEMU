@@ -5,9 +5,9 @@
 <img alt="Youtube Thumbnail" src="https://github.com/royalgraphx/SideswipeOnQEMU/blob/main/img/SSonQEMU.png?raw=true">
 </a>
                          
-                         Current Branch: main
+                         Current Branch: arch
                          Last Commit: 09/25/22 - 5:11:32 AM
-                         
+                         Branch Description: Allows for use on Steam Deck and Arch based Distros.
 # Table of Contents!
 
 - Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
