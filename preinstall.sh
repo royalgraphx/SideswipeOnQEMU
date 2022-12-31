@@ -6,7 +6,7 @@ git_dir=$HOME/Desktop/SideswipeOnQEMU
 # install required dependencies
 sudo pacman -Syu
 
-sudo pacman -S git glib2 dtc pixman zlib ninja libaio bluez-libs capstone brltty bzip2 libcap-ng libcurl-gnutls gtk3 libjpeg-turbo ncurses numactl libsasl sdl2 libseccomp snappy libssh libusb vte3 lzo valgrind libnfs libiscsi binwalk p7zip qemu-tools android-tools base-devel libepoxy libdrm mesa libx11 virglrenderer libpulse
+sudo pacman -S git glib2 dtc pixman zlib ninja libaio bluez-libs capstone brltty bzip2 libcap-ng libcurl-gnutls gtk3 libjpeg-turbo ncurses numactl libsasl sdl2 libseccomp snappy libssh libusb vte3 lzo valgrind libnfs libiscsi binwalk p7zip qemu-tools android-tools base-devel libepoxy libdrm mesa libx11 virglrenderer libpulse qemu-full
 
 # adding user to kvm group, and setting udev rule
 sudo usermod -a -G kvm,libvirt $(whoami)
