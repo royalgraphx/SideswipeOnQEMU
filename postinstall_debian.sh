@@ -24,4 +24,4 @@ echo You should have gotten a VERSION result! - RoyalGraphX
 # move onto the building of the vm
 
 cd $git_dir
-./sideswipe-vm-handler.sh
+sudo ./sideswipe-vm-handler.sh
