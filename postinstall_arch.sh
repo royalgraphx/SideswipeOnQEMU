@@ -2,24 +2,26 @@
 
 # set variables
 
-git_dir=$HOME/Desktop/SideswipeOnQEMU
+git_dir="$(pwd)"
 qemu_dir=$HOME/qemu-sideswipe
 
 # build qemu
-echo welcome to part 2 of the script!
-echo building qemu...
+
+echo Building qemu-sideswipe...
 
 cd $qemu_dir
+
 mkdir build
 cd build
 ../configure --enable-sdl --enable-opengl --enable-virglrenderer --enable-system --enable-modules --audio-drv-list=pa --target-list=x86_64-softmmu --enable-kvm --enable-gtk  --enable-libusb
 make
 
 # test build
+
 ./x86_64-softmmu/qemu-system-x86_64 --version
-echo you better have gotten a result! - RoyalGraphX
+echo You should have gotten a VERSION result! - RoyalGraphX
 
 # move onto the building of the vm
+
 cd $git_dir
-cd install_scripts
-sudo ./android_install_qemu_sideswipe.sh
+./sideswipe-vm-handler.sh
