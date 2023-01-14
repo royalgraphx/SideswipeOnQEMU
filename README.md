@@ -10,7 +10,6 @@
                          Branch Description: Allows for use on Steam Deck and Arch based Distros.
 # Table of Contents!
 
-- Step 0. [Before we get started...which Linux is the right Linux?](#before-we-get-started-which-linux-is-the-right-linux)
 - Step 1. [Getting started](#getting-started)
 - Step 2. [Configure Controller Passthrough](#configure-controller-passthrough)
 - (Optional) Step 3. [Configure Android QEMU Install Script](#configure-android-qemu-install-script)
@@ -23,70 +22,25 @@
 - [Known Issues](#known-issues)
 - [Extra Goodies](#extra-goodies)
 
-
-# Before we get started which Linux is the right Linux?
-
-If you've never used Linux before you might have already given up on this project and no longer want to attempt it...
-but fear not! Linux is very easy to learn, understand, and use! Not only will you unlock the full power of your system
-by running a completely different Operating System, with an amazing Kernel such that is the Linux Kernel, you will
-learn and acquire many new skills along the way.
-
-You can get Linux by downloading one of its many Distributions. If you're a new Linux User, I would recommend you download
-and install [the Latest Ubuntu Desktop](https://ubuntu.com/download/desktop) ISO and software like [Rufus](https://github.com/pbatard/rufus/releases/download/v3.20/rufus-3.20.exe) to flash an 8GB or higher flashdrive to boot.
-<div align="center">
-<img src="https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_1080/https://lh5.googleusercontent.com/PRglkirUPxt3hRLx-7qNVfGEB6OEPOqwchBMo71LvwDwJve-W0zRLeBnf21c16Kb8b3Vx5LAFaLn6JHy6mfR7a0Lq6Hj0IsUky2pZ_81EeCp80WBOBMqdwYgVMO7nGkHAWgWOIgp">
-</div>
-
-
-If you're looking for something closer to a more... Minty, vibe... You can run Linux Mint Cinnamon!
-Download the latest release [here](https://linuxmint.com/download.php) and please note that I suggest you dual boot install!
-<div align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Linux_Mint_21_%22Vanessa%22_%28Cinnamon%29.png">
-</div>
-
-It's incredibly easy to dual-boot in either of these Debian Linux based OS's. Simply follow along with the install
-and eventually you will be asked if you'd like to install alongside Windows. Select Yes and continue until booted in.
-
-Example in Ubuntu:
-<div align="center">
-<img src="https://itsfoss.com/wp-content/uploads/2021/02/ubuntu_installation_type-800x485.png">
-</div>
-<div align="center">
-<img src="https://itsfoss.com/wp-content/uploads/2021/03/disk-partition-dual-boot-ubuntu-windows-800x481.png">
-</div>
-
-
-Example in Linux Mint:
-<div align="center">
-<img src="https://helpdeskgeek.com/wp-content/pictures/2019/10/choose-something-else.png">
-</div>
-<div align="center">
-<img src="https://helpdeskgeek.com/wp-content/pictures/2019/10/choose-size.png">
-</div>
-
-
 # Getting started
 
-Welcome To Linux!
+Welcome To Arch!
 
+To get started with SideswipeOnQEMU, you'll need to clone the repository to your Desktop folder.
 
-
-To get started with SideswipeOnQEMU, you'll need to clone the repository into a directory, preferably on Desktop.
-
-
-Install git by opening a terminal(search for it or do Ctrl+Alt+T) and typing out:
+If you don't have ``git`` installed, use pacman to install it in a terminal (search for it or do Ctrl+Alt+T) and typing out:
 ```
-sudo apt-get update
-sudo apt-get install git
+sudo pacman -Syu
+sudo pacman -S git
 ```
 
 
-To initialize your local repository using git, use the following coommand on your desktop:
+To initialize your local repository using git, use the following coommand on your desktop, specifying to use the Arch branch:
 ```
-git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git
+git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git --branch arch
 ```
 
-Make sure you download the following ISO and store it in as its required to install Android
+Make sure you download the following ISO and store it in ``iso/`` as its required to install Android
 
 ```
 SideswipeOnQEMU/iso
@@ -260,6 +214,11 @@ Season 5
 <img src="https://cdn.discordapp.com/attachments/849156584239923211/1020245681488789575/unknown.png">
 </div>
 
+Season 6
+<div align="center">
+<img src="https://media.discordapp.net/attachments/1041605161933611042/1063831594206502942/image.png">
+</div>
+
 # QEMU Shortcuts
 
 Please note that you must be in fullscreen mode for Touch Input to work correctly!
@@ -329,7 +288,5 @@ you can ping me in the following server.
 https://discord.gg/B4CRB2bnsg
 
 Future Plans:
-- Windows Support, 64-Bit, WHPX only.
 - All Controllers supported by default, removes need for configuring passthrough
 - Custom Android built from Source, Move away from BlissOS 11.13
-- Support Multicore passthrough, better performance.
