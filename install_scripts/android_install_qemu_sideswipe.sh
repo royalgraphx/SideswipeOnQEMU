@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # set up variables
-isoname=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/iso/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
-required_files=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/required_files
-launch_file=/home/$SUDO_USER/Desktop/SideswipeOnQEMU/launch_scripts
+isoname=/home/$SUDO_USER/SideswipeOnQEMU/iso/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
+required_files=/home/$SUDO_USER/SideswipeOnQEMU/required_files
+launch_file=/home/$SUDO_USER/SideswipeOnQEMU/launch_scripts
 android_dir=/home/$SUDO_USER/Desktop/sideswipe-vm
 iso_mount=/tmp/iso
 system_mount=/tmp/system
@@ -18,7 +18,7 @@ cd "$android_dir"
 
 
 # create disk image and move over everything
-qemu-img create -f raw android.img 30G
+qemu-img create -f raw android.img 25G
 mkfs.ext4 android.img
 mkdir /tmp/android
 mount -o loop android.img /tmp/android
