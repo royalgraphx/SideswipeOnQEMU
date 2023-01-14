@@ -8,6 +8,7 @@ sideswipe_vm=$HOME/Desktop/sideswipe-vm
 cd $qemu_sideswipe
 
 ./qemu-system-x86_64 -enable-kvm -cpu host -smp 8 \
+-name "SideswipeOnQEMU" \
 -drive file=$sideswipe_vm/android.img,format=raw,cache=none,if=virtio \
 -m 14G \
 -display sdl,gl=on,show-cursor=on \

@@ -2,12 +2,13 @@
 
 # set variables
 
+sudo_user_home="$(echo /home/$SUDO_USER)"
 git_dir="$(pwd)"
-qemu_dir=$HOME/qemu-sideswipe
+qemu_dir=$sudo_user_home/qemu-sideswipe
 isoname=$git_dir/iso/Bliss-v11.13--OFFICIAL-20201113-1525_x86_64_k-k4.19.122-ax86-ga-rmi_m-20.1.0-llvm90_dgc-t3_gms_intelhd.iso
 required_files=$git_dir/required_files
 launch_file=$git_dir/launch_scripts
-android_dir=$HOME/Desktop/sideswipe-vm
+android_dir=$sudo_user_home/Desktop/sideswipe-vm
 iso_mount=/tmp/iso
 system_mount=/tmp/system
 
@@ -26,6 +27,8 @@ echo This is the sideswipe-vm directory: $android_dir
 echo This is the tmp path: $iso_mount
 echo This is the sys path: $system_mount
 echo
+
+# exit
 
 # First, we'll run fetch.sh to retreive the isoname
 
