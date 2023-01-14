@@ -1,0 +1,3 @@
+[submodule "qemu-sideswipe"]
+	path = qemu-sideswipe
+	url = https://github.com/royalgraphx/qemu-sideswipe
