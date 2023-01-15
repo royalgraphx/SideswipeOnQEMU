@@ -5,12 +5,20 @@ sudo_user_home="$(echo /home/$SUDO_USER)"
 qemu_dir=$sudo_user_home/qemu-sideswipe
 android_dir=$sudo_user_home/Desktop/sideswipe-vm
 
-# sudo rm -rf $qemu_dir
+clear
+echo Delete qemu-sideswipe?
+echo No=0, Yes=1
+read qemu
+if [[ $qemu > 0 ]]; then
+sudo rm -rf $qemu_dir
+else
+echo Sounds good, keeping current build.
+fi
 sudo rm -rf $android_dir
-
-echo $android_dir
+echo
 echo Done!
-sleep 1
+sleep 3
+
 clear
 echo Begin Installation...
 echo
