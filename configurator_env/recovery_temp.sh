@@ -28,4 +28,4 @@ cd $qemu_sideswipe
 -kernel $sideswipe_vm/kernel -append "root=/dev/ram0 quiet GRALLOC=gbm video=VM_HEIGHTRESxVM_WIDTHRES SRC=/" \
 -initrd $sideswipe_vm/initrd.img \
 -usb \
--device usb-host,vendorid=CONT_VENID,productid=CONT_PRODID
+-device usb-host,vendorid=0xCONT_VENID,productid=0xCONT_PRODID
