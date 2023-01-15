@@ -4,6 +4,17 @@
                          Last Commit: 01/14/23 - 9:21:32 AM
                          Branch Description: Nightly Builds / Latest SRC
 
+# How to use
+## the simplest explanation just on the quicks, incase you wanna try latest src
+
+```
+git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git --branch bleeding_edge
+cd SideswipeOnQEMU
+
+either of these two:
+./preinstall_arch.sh
+./preinstall_debian.sh
+```
 
 # notes and future plans
 
