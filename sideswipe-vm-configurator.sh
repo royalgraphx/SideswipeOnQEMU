@@ -125,6 +125,9 @@ sed -i 's/VM_WIDTHRES/'$(echo $vm_width)'/g' $recovery
 sed -i 's/VM_RAM/'$(echo $vm_ram)'/g' $recovery
 sed -i 's/CONT_VENID/'$(echo $vendor_id)'/g' $recovery
 sed -i 's/CONT_PRODID/'$(echo $product_id)'/g' $recovery
+if [[ $cpu_vendor =~ (GenuineIntel) ]]; then
+sed -i 's/,topoext//g' $launch
+fi
 
 cp -R $recovery launch_scripts/
 
@@ -136,6 +139,9 @@ sed -i 's/VM_WIDTHRES/'$(echo $vm_width)'/g' $launch
 sed -i 's/VM_RAM/'$(echo $vm_ram)'/g' $launch
 sed -i 's/CONT_VENID/'$(echo $vendor_id)'/g' $launch
 sed -i 's/CONT_PRODID/'$(echo $product_id)'/g' $launch
+if [[ $cpu_vendor =~ (GenuineIntel) ]]; then
+sed -i 's/,topoext//g' $launch
+fi
 
 cp -R $launch launch_scripts/
 
