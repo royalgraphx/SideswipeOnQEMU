@@ -99,6 +99,11 @@ chmod +x chain.sh
 umount /tmp/system
 umount /tmp/android
 
+
+# call on ssvmdeadlockd to patch mesa on the fly
+cd $git_dir
+sudo ./sideswipe-vm-deadlockd.sh
+
 ## Handoff & Launch VM !
 
 cd $android_dir
