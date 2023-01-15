@@ -19,5 +19,10 @@ sudo cp $git_dir/rules/xinput.rules "/etc/udev/rules.d/"
 cp -a $git_dir/qemu-sideswipe/ "$HOME"
 
 cd $git_dir
+
+# introduce ssvm configurator
+chmod +x sideswipe-vm-configurator.sh
+./sideswipe-vm-configurator.sh
+
 chmod +x postinstall_debian.sh
 ./postinstall_debian.sh

@@ -89,7 +89,7 @@ cd ..
 
 cd $android_dir
 
-sudo cp $launch_file/firstlaunch.sh "$android_dir"
+sudo cp $launch_file/recovery.sh "$android_dir"
 sudo cp $launch_file/launch.sh "$android_dir"
 sudo cp $launch_file/chain.sh "$android_dir"
 
