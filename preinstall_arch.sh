@@ -9,7 +9,7 @@ sudo pacman -Syu
 sudo pacman -S git glib2 dtc pixman zlib ninja libaio bluez-libs capstone brltty bzip2 libcap-ng libcurl-gnutls gtk3 libjpeg-turbo ncurses numactl libsasl sdl2 libseccomp snappy libssh libusb vte3 lzo valgrind libnfs libiscsi binwalk p7zip qemu-tools android-tools base-devel libepoxy libdrm mesa libx11 virglrenderer libpulse qemu-desktop
 
 # adding user to kvm group, and setting udev rule
-sudo adduser $USER kvm
+sudo usermod -a -G kvm,libvirt $(whoami)
 sudo cp $git_dir/rules/99-kvm.rules "/lib/udev/rules.d/"
 
 # set udev rule for controller passthrough
