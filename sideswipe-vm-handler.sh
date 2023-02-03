@@ -12,6 +12,10 @@ android_dir=$sudo_user_home/Desktop/sideswipe-vm
 iso_mount=/tmp/iso
 system_mount=/tmp/system
 
+clear
+cat extras/ssvm
+echo
+echo
 
 # DEBUG version only
 
