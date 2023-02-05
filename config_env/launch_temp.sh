@@ -30,5 +30,5 @@ cd $qemu_sideswipe
 -drive index=1,if=virtio,id=ramdisk,file=$ssvm/ramdisk.img,format=raw,cache=writeback \
 -drive index=2,if=virtio,id=data,file=$ssvm/data.img,format=raw,cache=writeback \
 -initrd $ssvm/initrd.img \
--kernel $sideswipe_vm/kernel \
+-kernel $ssvm/kernel \
 -append "root=/dev/ram0 console=ttyS0 androidboot.selinux=permissive cpufreq.default_governor=performance cpuidle.governor=performance RAMDISK=vdb DATA=vdc" \

@@ -1,4 +1,4 @@
-#!/bin/sudo bash
+#!/bin/bash
 
 # Clean up handoff
 
@@ -8,10 +8,32 @@ rm -rf chain.sh
 
 sudo_user_home="$(echo /home/$SUDO_USER)"
 qemu_sideswipe=$sudo_user_home/qemu-sideswipe/build/x86_64-softmmu
-ssvm="$(pwd)"
+git_dir=$sudo_user_home/SideswipeOnQEMU
+required_files=required_files
+alt=$sudo_user_home/branches/SideswipeOnQEMU/required_files
+ssvm=$sudo_user_home/Desktop/sideswipe-vm
 uuid="$(uuidgen)"
 
 # Begin
+
+# Debug
+
+clear
+echo
+cat $alt/recovery
+echo
+echo
+echo Welcome to SSVM Recovery! This is used in first launch.
+echo
+echo Debug: 'Show Paths'
+echo Sudo User: $SUDO_USER
+echo Sudo User Home: $sudo_user_home
+echo SSVM Directory: $ssvm
+echo qemu-sideswipe Directory: $qemu_sideswipe
+echo Current Generated UUID: $uuid
+echo
+
+# Debug
 
 cd $qemu_sideswipe
 
@@ -35,5 +57,5 @@ cd $qemu_sideswipe
 -drive index=1,if=virtio,id=ramdisk,file=$ssvm/ramdisk.img,format=raw,cache=writeback \
 -drive index=2,if=virtio,id=data,file=$ssvm/data.img,format=raw,cache=writeback \
 -initrd $ssvm/initrd.img \
--kernel $sideswipe_vm/kernel \
+-kernel $ssvm/kernel \
 -append "root=/dev/ram0 console=ttyS0 androidboot.selinux=permissive cpufreq.default_governor=performance cpuidle.governor=performance RAMDISK=vdb DATA=vdc" \
