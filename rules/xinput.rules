@@ -1,3 +1,39 @@
-# Bus 001 Device 008: ID 054c:0ce6 Sony Corp. Wireless Controller
+# Bus 001 Device 008: ID 054c:0ce6 Sony Corp. Wireless Controller (Dualsense)
+
 SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
 SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ce6", MODE="0666"
+
+# ID 054c:0268 DualShock 3 / Sixaxis 
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0268", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0268", MODE="0666"
+
+# ID 054c:05c4 Dualshock 4
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+
+# ID 054c:09cc Dualshock 4 Rev. 2
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+
+# ID 045e:028e Xbox 360 Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028e", MODE="0666"
+
+# ID 045e:028f Xbox 360 Wireless Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028f", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="028f", MODE="0666"
+
+# ID 045e:0202 Xbox One Controller
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0202", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0202", MODE="0666"
+
+# ID 045E:0285 Xbox One Controller S
+
+SUBSYSTEM=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0285", MODE="0666"
+SUBSYSTEM=="usb_device", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0285", MODE="0666"
