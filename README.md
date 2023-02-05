@@ -1,7 +1,7 @@
 # SideswipeOnQEMU
                  
                          Current Branch: bleeding_edge
-                         Last Commit: 01/30/23 - 4:32:15 PM
+                         Last Commit: 02/04/23 - 9:20:34 PM
                          Branch Description: Nightly Builds / Latest SRC
 
 # How to use
@@ -12,8 +12,8 @@ git clone --recursive https://github.com/royalgraphx/SideswipeOnQEMU.git --branc
 cd SideswipeOnQEMU
 
 either of these two:
-./preinstall_arch.sh
-./preinstall_debian.sh
+./install_arch.sh
+./install_debian.sh
 ```
 
 # notes and future plans
