@@ -55,7 +55,7 @@ cd $ssqemu_dir
 echo Building qemu-sideswipe locally ...
 mkdir build
 cd build
-../configure --enable-sdl --enable-opengl --enable-virglrenderer --enable-system --enable-modules --audio-drv-list=pa --target-list=x86_64-softmmu --enable-kvm --enable-gtk  --enable-libusb
+../configure --enable-sdl --enable-opengl --enable-virglrenderer --enable-system --enable-modules --audio-drv-list=pa --target-list=x86_64-softmmu --enable-kvm --enable-gtk  --enable-libusb --disable-werror
 make -j$(nproc)
 echo Testing executable...
 ./x86_64-softmmu/qemu-system-x86_64 --version

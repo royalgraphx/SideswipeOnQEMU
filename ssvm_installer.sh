@@ -21,5 +21,5 @@ mv $ssvm_workingdir $install_dir
 echo
 echo "Complete! 'First Run' Booting ..."
 
-cd install_dir
+cd $install_dir
 ./chain.sh
