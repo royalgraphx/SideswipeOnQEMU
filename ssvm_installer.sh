@@ -4,7 +4,9 @@
 
 git_dir="$(pwd)"
 ssvm_workingdir=$git_dir/ssvm
-install_dir=$HOME/Desktop/sideswipe-vm
+sudo_user_home="$(echo /home/$SUDO_USER)"
+install_dir=$sudo_user_home/Desktop/sideswipe-vm
+
 
 # Begin
 
