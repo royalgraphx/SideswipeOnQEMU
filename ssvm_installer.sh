@@ -30,4 +30,5 @@ echo
 echo "Complete! 'First Run' Booting ..."
 
 cd $install_dir
-./chain.sh
+pwd
+.$install_dir/chain.sh
