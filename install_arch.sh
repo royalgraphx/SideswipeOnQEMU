@@ -22,7 +22,7 @@ sudo cp $git_dir/rules/xinput.rules "/etc/udev/rules.d/"
 
 echo
 echo Would you like to build qemu-sideswipe locally?
-echo "Yes is default. Override? (y/N)": && read build_local
+echo "Yes is default. Skip building? (y/N)": && read build_local
  
 if [[ $build_local =~ (y) ]]; then
 echo

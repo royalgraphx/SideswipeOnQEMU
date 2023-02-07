@@ -1,4 +1,4 @@
-#!/bin/sudo bash
+#!/bin/bash
 
 # Vars
 
@@ -6,7 +6,7 @@ git_dir="$(pwd)"
 required_files=required_files
 ssvm_workingdir=$git_dir/ssvm
 sudo_user_home="$(echo /home/$SUDO_USER)"
-install_dir=$sudo_user_home/Desktop/sideswipe-vm
+install_dir=$sudo_user_home/Desktop/SSVM
 
 
 # Begin
@@ -20,8 +20,8 @@ echo Moving to Desktop ...
 echo
 
 echo DEBUG: 'Show Paths'
-echo $ssvm_workingdir
-echo $install_dir
+echo This is the SSVM Working Directory: $ssvm_workingdir
+echo This is the installation Directory: $install_dir
 echo
 
 mv $ssvm_workingdir $install_dir
