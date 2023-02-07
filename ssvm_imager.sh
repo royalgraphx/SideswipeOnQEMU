@@ -141,4 +141,4 @@ echo
 echo Complete! Continuing ...
 
 cd $git_dir
-sudo ./ssvm_installer.sh
+./ssvm_installer.sh
