@@ -11,7 +11,7 @@ qemu_sideswipe=$sudo_user_home/qemu-sideswipe/build/x86_64-softmmu
 git_dir=$sudo_user_home/SideswipeOnQEMU
 required_files=required_files
 alt=$sudo_user_home/branches/SideswipeOnQEMU/required_files
-ssvm=$sudo_user_home/Desktop/sideswipe-vm
+ssvm=$sudo_user_home/Desktop/SSVM
 uuid="$(uuidgen)"
 
 # Begin
@@ -20,7 +20,7 @@ uuid="$(uuidgen)"
 
 clear
 echo
-cat $alt/recovery
+cat recovery
 echo
 echo
 echo Welcome to SSVM Recovery! This is used in first launch.
@@ -52,7 +52,7 @@ cd $qemu_sideswipe
 -serial mon:stdio \
 -device usb-host,vendorid=0xCONT_VENID,productid=0xCONT_PRODID \
 -device usb-storage,drive=RL2D \
--drive file=fat:rw:$ssvm/RL2D.img,id=RL2D,format=raw,if=none \
+-drive file=rl2d.img,id=RL2D,format=raw,if=none \
 -drive index=0,if=virtio,id=system,file=$ssvm/system.img,format=raw,cache=writeback \
 -drive index=1,if=virtio,id=ramdisk,file=$ssvm/ramdisk.img,format=raw,cache=writeback \
 -drive index=2,if=virtio,id=data,file=$ssvm/data.img,format=raw,cache=writeback \

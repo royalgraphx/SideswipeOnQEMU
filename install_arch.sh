@@ -30,11 +30,11 @@ echo Fetching prebuilt qemu-sideswipe ...
 echo Exception: Not implemented yet! Testing if exists ...
 echo 
 if [ -d "$ssqemu_dir" ]; then
-    echo "$ssqemu_dir does exist. Updating ..."
+    echo "$ssqemu_dir does exist. Continuing ..."
     sleep 2
     cd $ssqemu_dir
     cd build
-    echo
+    echo Testing found build...
     ./x86_64-softmmu/qemu-system-x86_64 --version
     echo "if you didn't get a result, This was the place an error occured."
     echo

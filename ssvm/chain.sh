@@ -7,7 +7,7 @@ sudo_user_home="$(echo /home/$SUDO_USER)"
 git_dir=$sudo_user_home/SideswipeOnQEMU
 required_files=required_files
 alt=$sudo_user_home/branches/SideswipeOnQEMU/required_files
-install_dir=$sudo_user_home/Desktop/sideswipe-vm
+install_dir=$sudo_user_home/Desktop/SSVM
 
 # Begin
 

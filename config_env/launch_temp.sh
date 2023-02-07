@@ -25,7 +25,7 @@ cd $qemu_sideswipe
 -serial mon:stdio \
 -device usb-host,vendorid=0xCONT_VENID,productid=0xCONT_PRODID \
 -device usb-storage,drive=RL2D \
--drive file=fat:rw:$ssvm/RL2D.img,id=RL2D,format=raw,if=none \
+-drive file=$ssvm/rl2d.img,id=RL2D,format=raw,if=none \
 -drive index=0,if=virtio,id=system,file=$ssvm/system.img,format=raw,cache=writeback \
 -drive index=1,if=virtio,id=ramdisk,file=$ssvm/ramdisk.img,format=raw,cache=writeback \
 -drive index=2,if=virtio,id=data,file=$ssvm/data.img,format=raw,cache=writeback \
