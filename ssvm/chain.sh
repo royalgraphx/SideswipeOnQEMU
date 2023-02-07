@@ -9,13 +9,13 @@ required_files=required_files
 alt=$sudo_user_home/branches/SideswipeOnQEMU/required_files
 install_dir=$sudo_user_home/Desktop/sideswipe-vm
 
-# Begin 
+# Begin
 
 clear
 cat $git_dir/$required_files/ssvm
 echo
 echo
-echo Escaped SideswipeOnQEMU Setup Stage! Entering sideswipe-vm...
+echo Escaped SideswipeOnQEMU Setup Stage! Entering SSVM...
 echo
 echo Debug: 'Show Paths'
 echo
@@ -26,14 +26,16 @@ echo Git Directory: $git_dir/
 echo Install Directory: $install_dir/
 echo
 
-exit 
-
 chmod 777 -R .
-chown $SUDO_USER:$SUDO_USER recovery.sh
-chown $SUDO_USER:$SUDO_USER launch.sh
-chown $SUDO_USER:$SUDO_USER system.img
+chown $SUDO_USER:$SUDO_USER android_ver
+chown $SUDO_USER:$SUDO_USER data.img
 chown $SUDO_USER:$SUDO_USER initrd.img
-chown $SUDO_USER:$SUDO_USER ramdisk.img
 chown $SUDO_USER:$SUDO_USER kernel
+chown $SUDO_USER:$SUDO_USER launch.sh
+chown $SUDO_USER:$SUDO_USER ramdisk.img
+chown $SUDO_USER:$SUDO_USER recovery.sh
+chown $SUDO_USER:$SUDO_USER rl2d.img
+chown $SUDO_USER:$SUDO_USER ssvm_smbios
+chown $SUDO_USER:$SUDO_USER system.img
 
 sudo ./recovery.sh
