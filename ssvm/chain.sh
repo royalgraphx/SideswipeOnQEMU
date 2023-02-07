@@ -38,4 +38,4 @@ chown $SUDO_USER:$SUDO_USER rl2d.img
 chown $SUDO_USER:$SUDO_USER ssvm_smbios
 chown $SUDO_USER:$SUDO_USER system.img
 
-sudo ./recovery.sh
+./recovery.sh
