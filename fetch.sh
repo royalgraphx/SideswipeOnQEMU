@@ -1,5 +1,5 @@
 #!/bin/bash
-# Automation for retrieval of BlissRoms Bliss 11.13 ISO & Rocket League Sideswipe APK for use in sideswipe-vm/SideswipeOnQEMU.
+# Automation for retrieval of BlissRoms Bliss 11.13 ISO & Rocket League Sideswipe APK for use in SSVM/SideswipeOnQEMU.
 # No harm intended on Mediafire, moving to a better hosting solution soon.
 # ~ RoyalGraphX
 
