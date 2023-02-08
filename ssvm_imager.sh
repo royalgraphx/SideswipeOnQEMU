@@ -124,16 +124,16 @@ echo
 echo Complete! Continuing ...
 echo
 echo "Packaging contents of: $apks"
-echo "Current default size is (2GB), leaving 700mb free."
+echo "Current default size is (4GB), leaving 3GB free for your own APKs."
 echo
 
 # Create rl2d.img to hold files in /apks
 
 sudo qemu-img create -f raw $ssvm_workingdir/rl2d.img 2G
-sudo mkfs.ext4 $ssvm_workingdir/rl2d.img
+sudo mkfs.vfat $ssvm_workingdir/rl2d.img
 mkdir $rl2d_mount
-echo "Mounting ... (requires sudo)"
-sudo mount -o ro,rw $ssvm_workingdir/rl2d.img $rl2d_mount
+echo "Mounting ..."
+sudo mount -o rw $ssvm_workingdir/rl2d.img $rl2d_mount
 sudo cp -a $apks/* $rl2d_mount/.
 sudo umount $rl2d_mount
 
