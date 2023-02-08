@@ -20,7 +20,7 @@ uuid="$(uuidgen)"
 
 clear
 echo
-cat recovery
+cat $ssvm/recovery
 echo
 echo
 echo Welcome to SSVM Recovery! This is used in first launch.
