@@ -24,8 +24,8 @@ cd $qemu_sideswipe
 -device virtio-keyboard-pci \
 -serial mon:stdio \
 -device usb-host,vendorid=0xCONT_VENID,productid=0xCONT_PRODID \
--device usb-storage,drive=RL2D \
--drive file=$ssvm/rl2d.img,id=RL2D,format=raw,if=none \
+-device usb-storage,drive=rl2d \
+-drive file=$ssvm/rl2d.img,id=rl2d,format=raw,if=none \
 -drive index=0,if=virtio,id=system,file=$ssvm/system.img,format=raw,cache=writeback \
 -drive index=1,if=virtio,id=ramdisk,file=$ssvm/ramdisk.img,format=raw,cache=writeback \
 -drive index=2,if=virtio,id=data,file=$ssvm/data.img,format=raw,cache=writeback \

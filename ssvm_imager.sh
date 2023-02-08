@@ -129,8 +129,8 @@ echo
 
 # Create rl2d.img to hold files in /apks
 
-qemu-img create -f raw $ssvm_workingdir/rl2d.img 2G
-mkfs.ext4 $ssvm_workingdir/rl2d.img
+sudo qemu-img create -f raw $ssvm_workingdir/rl2d.img 2G
+sudo mkfs.ext4 $ssvm_workingdir/rl2d.img
 mkdir $rl2d_mount
 echo "Mounting ... (requires sudo)"
 sudo mount -o ro,rw $ssvm_workingdir/rl2d.img $rl2d_mount
